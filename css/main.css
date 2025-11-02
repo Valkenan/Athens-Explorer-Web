@@ -1,132 +1,188 @@
 body {
-  font-family: "Manrope", sans-serif;
-  padding: 0;
-  color: oklch(0.76 0.05 264);
-  margin: 0;
-  line-height: 1.6em;
-  background-image: linear-gradient(
-    0deg,
-    oklch(0.15 0.025 264) 97%,
-    oklch(0.2 0.025 264)
-  );
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+    font-family: "Manrope", sans-serif;
+    padding: 0;
+    color: oklch(0.76 0.05 264);
+    margin: 0;
+    line-height: 1.6em;
+    background-image: linear-gradient(
+            0deg,
+            oklch(0.15 0.025 264) 97%,
+            oklch(0.2 0.025 264)
+    );
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
-main{
-  flex: 1;
+
+main {
+    flex: 1;
 }
+
 header {
-  background-color: oklch(0.1 0.025 264);
-  margin: 0;
-  padding-bottom: 0;
-  overflow: hidden;
+    background-color: oklch(0.1 0.025 264);
+    margin: 0;
+    padding-bottom: 0;
+    overflow: hidden;
 }
+
 header h1 {
-  margin: 0;
-  padding: 10px;
-  text-align: center;
-  color: oklch(0.96 0.05 264);
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    color: oklch(0.96 0.05 264);
 }
+
 header p {
-  text-align: center;
-  padding: 10px;
-  margin: 0;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
 }
+
 .navbar {
-  display: flex;
-  justify-content: center;
-  background-color: oklch(0.1 0.025 264);
-  border-bottom: solid 1px oklch(0.3 0.05 264);
-  box-shadow: 0 2px 2px oklch(0 0 0 / 0.2), 0 4px 4px oklch(0 0 0 / 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+    display: flex;
+    justify-content: center;
+    background-color: oklch(0.1 0.025 264);
+    border-bottom: solid 1px oklch(0.3 0.05 264);
+    box-shadow: 0 2px 2px oklch(0 0 0 / 0.2), 0 4px 4px oklch(0 0 0 / 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
+
 .navbar ul {
-  display: flex;
-  gap: 20px;
-  list-style: none;
+    display: flex;
+    gap: 20px;
+    list-style: none;
 }
+
 .navbar a {
-  text-decoration: none;
-  color: oklch(0.76 0.05 264);
+    text-decoration: none;
+    color: oklch(0.76 0.05 264);
+    position: relative;
+    overflow: hidden;
+    padding: 5px 5px;
+    transition: color 0.3s ease;
 }
+
+.navbar a:hover {
+    color: oklch(0.96 0.05 264);
+}
+
+.navbar a::after {
+    content: "";
+    position: absolute;
+    background-color: oklch(0.96 0.05 264);
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    transition: width 0.3s ease;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+    animation: khate 1.5s ease-in-out 0.3s infinite;
+}
+
+@keyframes khate {
+    0%, 100% {
+        width: 100%;
+    }
+    50% {
+        width: 60%;
+    }
+}
+
 .Bienvenue {
-  display: flex;
-  gap: 30px;
-  max-width: 1200px;
-  margin: 50px auto;
-  padding: 0 20px;
-  align-items: center;
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+    align-items: center;
 }
+
 .Bienvenue .img {
-  flex: 1;
+    flex: 1;
 }
+
 .Bienvenue .img img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 10px;
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
 }
+
 .Bienvenue .content {
-  flex: 2;
+    flex: 2;
 }
+
 .Bienvenue .content h2 {
-  color: oklch(0.96 0.05 264);
+    color: oklch(0.96 0.05 264);
 }
+
 .card-container {
-  display: flex;
-  gap: 30px;
+    display: flex;
+    gap: 30px;
 }
+
 .card-container:hover .card {
-  opacity: 0.7;
-  transform: scale(0.95);
+    opacity: 0.7;
+    transform: scale(0.95);
 }
+
 .card {
-  flex: 1;
-  background-color: oklch(0.1 0.025 264);
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 2px 2px oklch(0 0 0 / 0.2), 0 4px 4px oklch(0 0 0 / 0.1);
-  transition: transform 0.3s ease,opacity 0.3s ease;
+    flex: 1;
+    background-color: oklch(0.1 0.025 264);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 2px oklch(0 0 0 / 0.2), 0 4px 4px oklch(0 0 0 / 0.1);
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
+
 .card-container .card:hover {
-  opacity: 1;
-  transform: scale(1.1);
+    opacity: 1;
+    transform: scale(1.1);
 }
+
 .card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
 }
+
 .card .card-content {
-  padding: 20px;
+    padding: 20px;
 }
+
 .card .card-content h3 {
-  margin-top: 0;
-  color: oklch(0.96 0.05 264);
+    margin-top: 0;
+    color: oklch(0.96 0.05 264);
 }
+
 .visiter,
 .Spécialités {
-  max-width: 1200px;
-  margin: 50px auto;
-  padding: 0 20px;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
 }
+
 .visiter h2,
 .Spécialités h2 {
-  text-align: center;
-  color: oklch(0.96 0.05 264);
-  margin-bottom: 30px;
+    text-align: center;
+    color: oklch(0.96 0.05 264);
+    margin-bottom: 30px;
 }
+
 footer {
-  text-align: center;
-  padding: 40px 20px;
-  margin-top: 60px;
-  border-top: solid 1px oklch(0.3 0.05 264);
-  background-color: oklch(0.1 0.025 264);
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 60px;
+    border-top: solid 1px oklch(0.3 0.05 264);
+    background-color: oklch(0.1 0.025 264);
 }
+
 footer .credits {
     margin: 5px 0;
     font-size: 16px;
@@ -139,7 +195,8 @@ footer .copyright {
     font-size: 0.9rem;
     color: oklch(0.6 0.05 264);
 }
+
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 70px;
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px;
 }
