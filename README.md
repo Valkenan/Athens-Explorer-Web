@@ -1,158 +1,45 @@
-# Découvrez Athènes
+# Athens Explorer Web
 
-A professional, responsive web application showcasing Athens, Greece - the cradle of Western civilization. This project delivers an immersive digital experience highlighting the city's historical significance, iconic landmarks, and rich cultural heritage.
+**A modern, accessible tourism landing page for Athens, Greece, utilizing next-generation CSS color spaces.**
 
-## 🌟 Key Features
+![HTML5](https://img.shields.io/badge/HTML5-Semantic-orange.svg) ![CSS3](https://img.shields.io/badge/CSS3-Modern-blue.svg) ![Status](https://img.shields.io/badge/Status-Responsive-green.svg)
 
--   **Fully Responsive Design**: Seamless cross-device compatibility with mobile-first approach
--   **Modern UI/UX**: Clean, elegant interface with smooth CSS3 animations and transitions
--   **Intuitive Navigation**: Sticky navigation bar with smooth scrolling functionality
--   **Interactive Components**: Engaging hover effects and card animations for enhanced user experience
--   **Direct Communication**: Integrated email contact system for easy inquiries
+## 📖 Overview
 
-## 📂 Project Structure
+Athens Explorer is a responsive, high-performance landing page designed to showcase the cultural and gastronomic highlights of Athens. Unlike traditional static sites, this project leverages **Modern CSS (Level 4)** features, including the `oklch()` color space for perceptually uniform gradients and high-fidelity color management.
 
-```
-Project-12/
-├── index.html          # Main HTML file
-├── css/
-│   └── main.css       # Stylesheet with modern CSS features
-├── imgs/              # Image assets
-│   ├── athens-main.jpg
-│   ├── Parthénon.webp
-│   ├── Odéon.webp
-│   ├── Musée.jpg
-│   ├── moussaka.jpg
-│   ├── souvlaki.jpg
-│   └── frappe.webp
-├── .gitignore         # Git ignore configuration
-└── README.md          # Project documentation
-```
+## 🎨 UI/UX Architecture
 
-## 🎨 Content Sections
+The design system is built on a "Mobile-First" philosophy (adapted for desktop) with a focus on visual hierarchy and readability.
 
-### 1. **Accueil (Welcome)**
+* **Color System:** Migrated away from sRGB/Hex codes to **OKLCH**. This ensures that color lightness ($L$) and chroma ($C$) remain consistent across different hues, improving readability and accessibility.
+* **Typography:** Uses *Manrope*, a modern sans-serif font, ensuring legibility on high-DPI displays.
+* **Layout Engine:** Utilizes CSS Flexbox for a fluid, adaptive layout that maintains structure across different viewport sizes.
 
-Comprehensive introduction to Athens as Greece's capital and the birthplace of democracy, philosophy, and theatrical arts. Sets the tone for the visitor's digital journey through ancient and modern Athens.
+## ⚡ Technical Decisions
 
-### 2. **À Visiter (Must-Visit Attractions)**
+### 1. Perceptual Color Space (`oklch`)
+I chose `oklch` over standard Hex/RGB because it decouples **Lightness** from **Chroma** (intensity).
+* *Code:* `color: oklch(0.76 0.05 264);`
+* *Benefit:* This allows for generating dynamic hover states and gradients (like the navbar background) without accidental shifts in perceived brightness, which is a common issue with HSL.
 
-Curated showcase of Athens' three premier destinations:
+### 2. Semantic HTML5
+The markup strictly follows semantic standards (`<header>`, `<main>`, `<section>`, `<nav>`) rather than using generic `<div>` wrappers.
+* **SEO:** Helps search engines understand the priority of content.
+* **Accessibility:** Allows screen readers to navigate the "Landmark" regions of the page effectively.
 
--   **L'Acropole et le Parthénon**: UNESCO World Heritage site and pinnacle of classical Greek architecture
--   **Odéon d'Hérode Atticus**: Historic 2nd-century amphitheater, actively hosting contemporary performances and festivals
--   **Le Musée de l'Acropole**: Award-winning modern museum housing invaluable artifacts with panoramic Parthenon views
+### 3. Performance Optimization
+* **Lazy Loading:** All images utilize `loading="lazy"` to defer off-screen image decoding. This significantly improves the **Largest Contentful Paint (LCP)** metric on initial load.
+* **Compositor-Only Animations:** The navbar underline animation targets the `width` and `opacity` properties to minimize main-thread layout thrashing.
 
-### 3. **Gastronomie (Culinary Heritage)**
+## 🚀 Features
 
-Featured authentic Greek specialties:
+* **Sticky Navigation:** Implemented with pure CSS (`position: sticky`), removing the need for JavaScript event listeners.
+* **Interactive Cards:** Hover states with `transform: scale()` and opacity transitions create a tactile feel for the user.
+* **Smooth Scrolling:** Native CSS `scroll-behavior: smooth` provides a polished navigation experience between sections.
 
--   **Moussaka**: Traditional layered casserole with eggplant, seasoned meat, and creamy béchamel sauce
--   **Souvlaki & Gyros**: Iconic Greek street food with grilled meat skewers (Souvlaki) or rotisserie meat (Gyros), served in pita with tzatziki
--   **Café Frappé**: Athens' signature iced coffee drink, perfect for sunny terrace breaks
+## 💻 Setup & Usage
 
-### 4. **Contact**
-
-Direct email communication channel for visitor inquiries and information requests
-
-## 🛠️ Technical Stack
-
-### Core Technologies
-
--   **HTML5**: Semantic markup structure with accessibility considerations
--   **CSS3**: Advanced styling featuring:
-    -   OKLCH color space for precise, perceptually uniform color management
-    -   Flexbox layout system for responsive design patterns
-    -   CSS3 transitions and transforms for smooth animations
-    -   Custom keyframe animations for interactive elements
-    -   Sticky positioning for persistent navigation
-    -   Advanced visual effects (box shadows, gradients, opacity transitions)
-    -   Hover state transitions with scale and opacity effects
-
-### Design Principles
-
--   Mobile-first responsive approach
--   Progressive enhancement strategy
--   Performance-optimized asset loading
--   Clean, maintainable code architecture
--   Interactive card components with hover effects
--   Smooth scroll behavior for enhanced navigation
-
-## 🚀 Getting Started
-
-### Prerequisites
-
--   Modern web browser (see Browser Support section)
--   Git (for cloning the repository)
-
-### Installation
-
-1. Clone the repository:
-
-    ```bash
-    git clone https://github.com/Valkenan/Project-12.git
-    ```
-
-2. Navigate to the project directory:
-
-    ```bash
-    cd Project-12
-    ```
-
-3. Launch the application:
-    - Open `index.html` in your preferred web browser
-    - Or use a local development server for optimal experience
-
-### Usage
-
-Navigate through sections using the sticky navigation bar. All interactive elements respond to hover states for enhanced user feedback.
-
-## 📋 Version Control Configuration
-
-The project includes a comprehensive `.gitignore` file to maintain repository cleanliness:
-
--   **Development Environment**: `.vscode/` excluded to support diverse developer tooling preferences
--   **Operating System Artifacts**: `.DS_Store`, `Thumbs.db`, and system-generated files
--   **IDE Configurations**: `.idea/`, `.settings/`, and editor-specific files
--   **Dependencies**: `node_modules/`, package lock files
--   **Build Artifacts**: Distribution folders, minified files
--   **Logs and Temporary Files**: Runtime logs, cache files
--   **Sensitive Data**: Environment variables and configuration files
-
-## 💻 Browser Compatibility
-
-This application leverages cutting-edge CSS features, particularly the OKLCH color space, requiring modern browser support:
-
-| Browser     | Minimum Version |
-| ----------- | --------------- |
-| Chrome/Edge | 111+            |
-| Firefox     | 113+            |
-| Safari      | 16.4+           |
-
-**Note**: For optimal experience, ensure your browser is updated to the latest stable version.
-
-## � Team
-
-**Developers**:
-
--   Adam EL Fennych
--   Mohamed EL Baidouri
-
-**Contact**: [adamfennych07@gmail.com](mailto:adamfennych07@gmail.com)
-
-For inquiries, bug reports, or collaboration opportunities, please reach out via email.
-
-## 📝 License
-
-This project is open source and available for educational and non-commercial purposes.
-
----
-
-## 🙏 Acknowledgments
-
-Built with passion to celebrate the timeless beauty and cultural significance of Athens, Greece.
-
----
-
-**© 2025 - Découvrez Athènes Project | Tous droits réservés**  
-_Réalisé par Adam EL Fennych & Mohamed EL Baidouri_
+1.  Clone the repository.
+2.  Open `index.html` in any modern browser.
+    * *Note:* No build step (npm/webpack) is required, adhering to the "Vanilla Web" philosophy.
